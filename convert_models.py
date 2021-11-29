@@ -27,6 +27,7 @@ if __name__ == '__main__':
             filename = entry.path.split("/")[-1].split(".")[0]
 
             ms.load_new_mesh(input_mesh_dir + "/" + filename + file_type)
-            ms.surface_reconstruction_screened_poisson()
+            ms.load_filter_script('scripts/screened_poisson.mlx')
+            ms.apply_filter_script()
             ms.save_current_mesh(output_data_dir + "/" + filename + ".ply")
             ms.clear()
